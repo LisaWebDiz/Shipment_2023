@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Приложение</h1>
+
+    <div class="btn-group">
+
+        <a href="{% url 'upload_locations' %}"
+           class="btn btn btn-info">Загрузить базу данных локаций</a>
+
+    </div>
+
+    <div class="btn-group">
+
+        <a href="{% url 'upload_trucks' %}"
+           class="btn btn btn-info">Загрузить базу данных грузовиков</a>
+
+    </div>
+    <br>
+    <br>
+    <div class="btn-group">
+
+        <a href="{% url 'shipment_locations_api_list' %}"
+           class="btn btn btn-info">API локаций</a>
+
+    </div>
+
+    <div class="btn-group">
+
+        <a href="{% url 'shipment_trucks_api_list' %}"
+           class="btn btn btn-info">API грузовиков</a>
+
+    </div>
+
+    <div class="btn-group">
+
+        <a href="{% url 'shipment_cargos_api_list' %}"
+           class="btn btn btn-info">API грузов</a>
+
+    </div>
+    <br>
+    <br>
+    <div class="btn-group">
+        <a href="{% url 'cargos_list' %}"
+           class="btn btn btn-info">Список грузов</a>
+    </div>
+    <div class="btn-group">
+        <a href="{% url 'add_cargo' %}"
+           class="btn btn btn-info">Добавить груз</a>
+
+    </div>
+    <br>
+    <br>
+
+    <form action="{% url 'search_cargo' %}" method="get">
+        <input class="form-control" name="id" type="text" placeholder="Введите id груза" aria-label="Search">
+        <br>
+        <button type="submit" class="btn btn-primary">Найти</button>
+    </form>
+    <br>
+    <div class="btn-group">
+        <a href="{% url 'trucks_list' %}"
+           class="btn btn btn-info">Список грузовиков</a>
+
+    </div>
+
+{% endblock %}

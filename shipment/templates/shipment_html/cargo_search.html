@@ -1,0 +1,70 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+    Поиск груза
+{% endblock %}
+
+{% block content %}
+    <h2>Найти груз</h2>
+    <div class="col-md-10">
+        <div class="h-100 p-5 text-bg-light rounded-3">
+
+            <a href="{% url 'index' %}" class="btn btn-sm btn-outline-secondary">Назад</a>
+
+            <div class="row">
+                <div class="col-10">
+                    <table class="table table-image">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Забрать от</th>
+                            <th scope="col">Доставить до</th>
+                            <th scope="col">Вес</th>
+                            <th scope="col">Описание</th>
+                            <th scope="col">Грузовик</th>
+                            <th scope="col">Количество грузовиков в радиусе 450 миль</th>
+                            <th scope="col">Номера грузовиков в радиусе 450 миль</th>
+                            <th scope="col">Редактировать груз</th>
+                            <th scope="col">Удалить груз</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for cargo in cargos %}
+
+                            <tr>
+                            <td class="w-25"> {{ cargo.id }} </td>
+                            <td>{{ cargo.zip_pickup }} </td>
+                            <td>{{ cargo.zip_delivery }} </td>
+                            <td>{{ cargo.cargo }} </td>
+                            <td>{{ cargo.description }} </td>
+                            <td>{{ cargo.truck_id }} </td>
+                            <td>
+
+
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary">Найти</button>
+                            </td>
+                            <td>
+                                <form method="post" action="{% url 'edit_cargo' cargo.pk %}">
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn btn-info" value="Редактировать груз">
+                                </form>
+                            </td>
+                                          <td>
+                                <form method="post" action="{% url 'del_cargo' cargo.id %}">
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn btn-danger" value="Удалить груз">
+                                </form>
+                            </td>
+                        {% endfor %}
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

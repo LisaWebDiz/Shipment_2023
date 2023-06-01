@@ -1,0 +1,116 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+    Список грузов
+{% endblock %}
+
+{% block content %}
+
+<h3>Список грузов</h3>
+
+
+<a class="btn btn-outline-secondary" style="margin-left: 8px;" href="{% url 'index' %}">На
+    главную</a>
+
+<div class="row">
+    <div class="col-10">
+        <table class="table table-image">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Забрать от</th>
+                <th scope="col">Доставить до</th>
+                <th scope="col">Вес</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Грузовик</th>
+                <th scope="col">Количество грузовиков в радиусе 450 миль</th>
+                <th scope="col">Номера грузовиков в радиусе 450 миль</th>
+                <th scope="col">Редактировать груз</th>
+                <th scope="col">Удалить груз</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for item in page_obj %}
+                <tr>
+                <td class="w-25"> {{ item.id }} </td>
+                <td>{{ item.zip_pickup }} </td>
+                <td>{{ item.zip_delivery }} </td>
+                <td>{{ item.cargo }} </td>
+                <td>{{ item.description }} </td>
+                <td>{{ item.truck_id }} </td>
+                <td>
+
+
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-primary">Найти</button>
+                </td>
+                <td>
+                    <form method="post" action="{% url 'edit_cargo' item.id %}">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-info" value="Редактировать груз">
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="{% url 'del_cargo' item.id %}">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-danger" value="Удалить груз">
+                    </form>
+                </td>
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+
+        <br>
+
+    </div>
+</div>
+
+<br>
+<br>
+
+<div class='container'>
+    <div class="row align-items-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for page in page_obj.paginator.page_range %}
+                    {% if page_obj.number == page %}
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">{{ page }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}
+
