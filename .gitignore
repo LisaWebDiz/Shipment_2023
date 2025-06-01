@@ -19,8 +19,9 @@ staticfiles/
 .coverage
 files/
 media/
-.idea/
-app/__pycache/
+app/__pycache__/
+shipment/__pycache__/
+shipment/migration/__pycahe__/
 
 
 
