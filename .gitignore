@@ -20,6 +20,8 @@ staticfiles/
 files/
 media/
 .idea/
+app/__pycache/
+
 
 
 
