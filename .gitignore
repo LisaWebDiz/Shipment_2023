@@ -19,6 +19,7 @@ staticfiles/
 .coverage
 files/
 media/
-idea/
+.idea/
+
 
 
