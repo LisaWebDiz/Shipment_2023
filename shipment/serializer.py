@@ -1,5 +1,7 @@
 ﻿from rest_framework import serializers
+
 from .models import Location, Truck, Cargo
+
 
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:

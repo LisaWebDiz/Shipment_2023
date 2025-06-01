@@ -1,0 +1,24 @@
+# created by virtualenv automatically
+shipment/Lib/
+shipment/scripts/
+pyvenv.cfg
+db.sqlite3
+.env
+*.env
+htmlcov/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/.env
+venv/
+.venv/
+.idea/
+Lib/
+staticfiles/
+.coverage
+files/
+media/
+idea/
+
+

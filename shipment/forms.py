@@ -1,5 +1,6 @@
-from django.forms import ModelForm
 from django import forms
+from django.forms import ModelForm
+
 from .models import LocationImport, Cargo, Truck
 
 
@@ -12,7 +13,6 @@ class LocationImportForm(ModelForm):
 class CargoForm(forms.ModelForm):
     class Meta:
         model = Cargo
-        # fields = '__all__'
         fields = ['zip_pickup', 'zip_delivery', 'cargo', 'description', 'truck']
 
         widgets = {
@@ -53,7 +53,6 @@ class CargoForm(forms.ModelForm):
 class TruckForm(forms.ModelForm):
     class Meta:
         model = Truck
-        # fields = '__all__'
         fields = ['number', 'zip', 'load_capacity', ]
 
         widgets = {
@@ -65,15 +64,15 @@ class TruckForm(forms.ModelForm):
                 }
             ),
             'zip': forms.TextInput(
-                attrs = {
-            'class': 'form-control',
-            'placeholder': "zip"
-        }
-        ),
-        'load_capacity': forms.TextInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': "Грузоподъемность"
-            }
-        ),
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': "zip"
+                }
+            ),
+            'load_capacity': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': "Грузоподъемность"
+                }
+            ),
         }

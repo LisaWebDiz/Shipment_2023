@@ -52,7 +52,7 @@
                                     <input type="submit" class="btn btn-info" value="Редактировать груз">
                                 </form>
                             </td>
-                                          <td>
+                            <td>
                                 <form method="post" action="{% url 'del_cargo' cargo.id %}">
                                     {% csrf_token %}
                                     <input type="submit" class="btn btn-danger" value="Удалить груз">
