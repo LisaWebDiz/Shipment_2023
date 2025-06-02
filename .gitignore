@@ -19,10 +19,3 @@ staticfiles/
 .coverage
 files/
 media/
-app/__pycache__/
-shipment/__pycache__/
-shipment/migration/__pycahe__/
-
-
-
-
