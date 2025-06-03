@@ -25,3 +25,12 @@ python manage.py migrate
 python manage.py runserver
 
 Enjoy!
+
+
+### Features
+    • Django admin panel for managing data
+    • Fully documented REST API
+    • Data storage using PostgreSQL
+    • pgAdmin for database viewing: http://localhost:5050
+    • Admin panel: http://localhost:8000/admin/
+    • Registration/Authentication
