@@ -12,5 +12,16 @@ API баз данных: локаций, грузовиков, грузов.
 
 
 ### Quick start
+```bash
+git clone https://github.com/yourusername/shipment_2023.git
+cd shipment_2023.git
+cp example.env .env
 
+python3 -m venv venv  
+source ./venv/bin/activate  
+pip install -r requirements.txt  
+python manage.py makemigrations  
+python manage.py migrate  
+python manage.py runserver
 
+Enjoy!
