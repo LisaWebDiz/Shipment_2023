@@ -1,15 +1,8 @@
 ### Shipment Project 2023
-### Description
-Test task for middle python django developer.  
-Web приложения поиска грузов.  
-Выгрузка конкретных столбцов из списка csv файла локаций в определенные поля базы данных Postgres при загрузке csv файла.  
-Создание базы данных грузовиков по умолчанию с рандомными номерами в формате "число от 1000 до 9999 + случайная заглавная буква английского алфавита" в поле "номер" и рандомными локациями в поле "местонахождение".  
-Фикстура для загрузки базы данных грузовиков по умолчанию.  
-API баз данных: локаций, грузовиков, грузов.  
-Поиск груза по ID.  
-Вывод списка грузовиков, редактирование грузовика.  
-Вывод списка грузов, редактирование, удаление груза.  
 
+### Description
+Cargo Search Web Application
+A Django-based web application for managing cargos, locations, and trucks. The application allows to import CSV data, auto-generating truck records, and managing cargo details via a user-friendly admin panel and a documented REST API.
 
 ### Quick start
 ```bash
@@ -27,10 +20,15 @@ python manage.py runserver
 Enjoy!
 
 
-### Features
-    • Django admin panel for managing data
+### Key Features
+    • Upload a CSV file with location data and automatically extract specific columns into designated PostgreSQL database fields
+    • Auto-generate a default database of trucks with random license plate numbers in the format 1000–9999 + random latin uppercase letter
+    • Randomized current locations
+    • Load default trucks using a Django fixture
+    • Search for cargo by ID with a detailed view
+    • Django admin panel for managing data at http://localhost:8000/admin/
     • Fully documented REST API
     • Data storage using PostgreSQL
-    • pgAdmin for database viewing: http://localhost:5050
-    • Admin panel: http://localhost:8000/admin/
-    • Registration/Authentication
+    • Built-in pgAdmin interface for managing the database at http://localhost:5050
+    • Catalogue list view and detail view for locations, trucks & cargos
+    • Add / edit / delete entries — available for registered users
