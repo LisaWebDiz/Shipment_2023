@@ -31,4 +31,4 @@ Enjoy!
     • Data storage using PostgreSQL
     • Built-in pgAdmin interface for managing the database at http://localhost:5050
     • Catalogue list view and detail view for locations, trucks & cargos
-    • Add / edit / delete entries — available for registered users
+    • Add / edit / delete entries
